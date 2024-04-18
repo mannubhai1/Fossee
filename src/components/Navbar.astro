@@ -2,14 +2,14 @@
 import 'bootstrap/dist/css/bootstrap.css'
 ---
 
-<div class="navbar py-4">
-  <a href="#" class="text-gray-800">Home</a>
-  <a href="#" class="text-gray-800">About</a>
-  <a href="#" class="text-gray-800">Resources</a>
-  <a href="#" class="text-gray-800">Schedule</a>
-  <a href="#" class="text-gray-800">Register</a>
-  <a href="#" class="text-gray-800">Partners</a>
-  <a href="#" class="text-gray-800">Contact Us</a>
+<div class="navbar">
+  <a href="#" class="text-blue-800">Home</a>
+  <a href="#" class="text-blue-800">About</a>
+  <a href="#" class="text-blue-800">Resources</a>
+  <a href="#" class="text-blue-800">Schedule</a>
+  <a href="#" class="text-blue-800">Register</a>
+  <a href="#" class="text-blue-800">Partners</a>
+  <a href="#" class="text-blue-800">Contact Us</a>
 </div>
   <style>
     .navbar {
@@ -23,6 +23,23 @@ import 'bootstrap/dist/css/bootstrap.css'
       font-size: 2.2vh;
       font-weight:600;
       text-decoration: none;
+      padding: 18px;
     }
+    .navbar a:hover{
+      background-color: rgb(1, 1, 131);
+      color: white;
+    }
+
+    @media screen and (max-width: 613px) {
+    .container {
+      width: 100%; /* Adjust as needed */
+    }
+
+    .navbar{
+      /* flex-direction: column; */
+      /* align-items: flex-start; */
+      padding: 0 10vw;
+    }
+  }
   </style>
 

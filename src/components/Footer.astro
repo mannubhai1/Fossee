@@ -1,0 +1,77 @@
+---
+import 'bootstrap/dist/css/bootstrap.css'
+---
+
+<div class="footer">
+    <div class="footer-content">
+        <ul class="about-list">
+            <h2>About</h2>
+            <li>IIT Bombay</li>
+            <li>FOSSEE</li>
+            <li>IITTNiF</li>
+            <li>Spoken Tutorial</li>
+        </ul>
+    </div>
+    <div class="footer-content">
+        <ul>
+            <h2>Resources</h2>
+            <li>QGIS</li>
+            <li>Spoken Tutorials - FOSSEE - QGIS</li>
+        </ul>
+    </div>
+    <div class="license-container">
+        <img class ="license-img" alt="Creative Commons License" style="border-width:0" src="https://iitb-isro-aicte-mapathon.fossee.in/static/cms/uploads/images/88x31.png">
+        <p class="license">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License .</p>    
+    </divmcl>
+</div>
+
+  <style>
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: #060606;
+        color: white;
+        flex-direction: row;
+        padding: 4vh;
+    }
+
+    .footer-content {
+        display: flex;
+        padding: 3vw;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+        flex-direction: column;
+    }
+    li{
+        font-size: 2.3vh;
+    }
+
+    .license-container{
+        padding: 3vw;
+    }
+
+    @media screen and (max-width: 554px) {
+        .footer {
+            flex-direction: column;
+        }
+        .footer-content {
+            padding: 2vh;
+        }
+        li{
+            font-size: 2vh;
+        }
+        .license{
+            font-size: 2vh;
+            padding: 5vw;
+            text-align: center;
+        }
+        .license-img{
+            margin: auto;
+        }
+  }
+
+
+  </style>
+

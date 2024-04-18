@@ -2,11 +2,102 @@
 import 'bootstrap/dist/css/bootstrap.css'
 ---
 
-<div class="container">
-
+<div class="head">
+    <div class="map">
+        <img src="https://iot-gis-hackathon.fossee.org/static/cms/uploads/images/indiamap.png" id="left-img">
+    </div>
+    <div class="registration">
+        <h2 class="hack-heading" style="color: #000080ff;">IIT Bombay-FOSSEE-GIS/OSHW, IITTNiF &amp; <br> ICFOSS presents</h2>
+        <div class="hack-img"><img src="https://iot-gis-hackathon.fossee.org/static/cms/uploads/images/right-img.png" id="right-img"></div>
+        <div class="hack-button"> <a href="home#register"><button class="btn-register slide-right">Register</button></a></div>
+    </div>
 </div>
 
   <style>
-    
+    .head{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+        height: 80vh;
+        padding: 1vh;
+        background-color: rgb(252, 230, 188);
+    }
+    .map img{
+        height: 60vh;
+        width: 90%;
+        margin-top: 20px;
+        vertical-align: middle;
+        border-style: none;
+    }
+    .registration{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .hack-heading{
+        font-family: 'Roboto Slab', serif !important;
+        font-size: 5vh;
+        text-align: center;
+        word-wrap: break-word;
+    }
+    .hack-img img{
+        margin-top: 20px;
+        height: 35vh;
+        width: 100%;
+    }
+
+    .hack-button{
+        /* background-color: orange; */
+        margin: 2vh;
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1vh 2vw;
+    }
+
+    .btn-register{
+        background-color: #000080ff;
+        width: 30vw;
+        color: white;
+        border: 3px solid white;
+        padding: 1.5vh;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        border-radius: 12px;
+        font-family: "Lucida Console", Monaco, 
+    }
+
+    @media screen and (max-width: 613px) {
+        .head{
+            flex-direction: column-reverse;
+            height: 100vh;
+        }
+
+        .hack-heading{
+            font-size: 3vh;
+        }
+
+        .hack-button button{
+            width: 60vw;
+        }
+
+        .hack-img img{
+            height: 25vh;
+            width: 100%;
+        }
+
+        .map img{
+            height: 40vh;
+        }
+    }
+
+
   </style>
 
