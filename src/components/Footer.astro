@@ -1,26 +1,28 @@
 ---
-import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/css/bootstrap.css'
 ---
 
 <div class="footer">
     <div class="footer-content">
         <ul class="about-list">
             <h2>About</h2>
-            <li>IIT Bombay</li>
-            <li>FOSSEE</li>
-            <li>IITTNiF</li>
-            <li>Spoken Tutorial</li>
+            <li><a class="footer-links" href="https://www.iitb.ac.in/">IIT Bombay</a></li>
+            <li><a class="footer-links" href="https://fossee.in/">FOSSEE</a></li>
+            <li><a class="footer-links" href="https://www.iittnif.org/">IITTNiF</a></li>
+            <li><a class="footer-links" href="https://spoken-tutorial.org/">Spoken Tutorial</a></li>
         </ul>
     </div>
     <div class="footer-content">
         <ul>
             <h2>Resources</h2>
-            <li>QGIS</li>
-            <li>Spoken Tutorials - FOSSEE - QGIS</li>
+            <li><a class="footer-links" href="https://qgis.org/en/site/forusers/download.html">QGIS</a></li>
+            <li><a class="footer-links" href="https://spoken-tutorial.org/tutorial-search/?search_foss=QGIS&search_language=English">Spoken Tutorials - FOSSEE - QGIS</a></li>
         </ul>
     </div>
     <div class="license-container">
-        <img class ="license-img" alt="Creative Commons License" style="border-width:0" src="https://iitb-isro-aicte-mapathon.fossee.in/static/cms/uploads/images/88x31.png">
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/">
+            <img class ="license-img" alt="Creative Commons License" style="border-width:0" src="https://iitb-isro-aicte-mapathon.fossee.in/static/cms/uploads/images/88x31.png">
+        </a>
         <p class="license">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License .</p>    
     </divmcl>
 </div>
@@ -46,6 +48,10 @@ import 'bootstrap/dist/css/bootstrap.css'
     }
     li{
         font-size: 2.3vh;
+    }
+    .footer-links{
+        text-decoration: none;
+        color: aliceblue
     }
 
     .license-container{

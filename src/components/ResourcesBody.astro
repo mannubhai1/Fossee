@@ -1,0 +1,34 @@
+---
+import Accordion from './Accordion.astro'
+---
+
+<div class="resources-main">
+    <div class="resources-heading">
+        <h1>Resources</h1>
+    </div>
+    <Accordion/>
+</div>
+  <style>
+
+    .resources-main{
+        /* any background color we can add */
+        margin: 3vh;
+    }
+    .resources-heading h1{
+        color: rgb(2, 2, 110);
+        font-size: 7.5vh;
+        font-family: 'Roboto', sans-serif;
+        padding: 3vh 21%;
+        font-weight: 700;
+    }
+    .resources-heading:hover{
+        color: blue;
+    }
+    @media screen and (max-width: 915px) {
+        .resources-heading h1{
+            font-size: 4.5vh;
+            padding: 3vh 10%;
+        }
+    }
+  </style>
+

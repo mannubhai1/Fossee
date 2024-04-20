@@ -1,0 +1,68 @@
+---
+import { Carousel } from 'astro-bootstrap';
+import type { CarouselSlideType } from 'astro-bootstrap';
+
+const slides: CarouselSlideType[] = [
+  { 
+    img: 'https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/rudra-logo.png',
+    alt: 'Rudra',
+    active:true, 
+    link : 'http://www.rudra.iitb.ac.in/',
+  },
+  { img: 'https://iot-gis-hackathon.fossee.in/static/cms/uploads/images/icfoss-logo.png', alt: 'icfoss', active: true },
+  { img: 'https://iot-gis-hackathon.fossee.org/static/cms/uploads/images/NM-ICPS-logo1.png', alt: 'NMICPS' ,active:true, link:'https://nmicps.in/'},
+  { img: 'https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/navavishkaar.png', alt: 'IITTNiF' ,active:true, link:'https://iittnif.com/'},
+  { img: 'https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/iit-tirupati.png', alt: 'IIT Tirupati' ,active:true, link:'https://www.iittp.ac.in/'},
+  { img: 'https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/iitb-logo.png', alt: 'IITB' ,active:true, link:'http://iitb.ac.in/'},
+  { img: 'https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/fossee-logo.png', alt: 'FOSSEE' ,active:true, link:'https://fossee.in/'},
+  { img: 'https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/st-logo.png', alt: 'Spoken Tutorial' ,active:true, link:'https://spoken-tutorial.org/'}, 
+];
+
+
+const id = 'carouselExampleBasic';
+---
+
+<Carousel {id} fade>
+  <Carousel.Indicators {id} {slides} />
+  <!-- <div class="carousel-container"> -->
+  <Carousel.Inner>
+    {
+      slides.map((slide) => (
+        <Carousel.Item active={slide.active}>
+            <a href={slide.link}>
+              <img
+              src={slide.img}
+              alt={slide.alt}
+              class="carousel-images"
+              />
+            </a>
+          </Carousel.Item>
+        ))
+      }
+      <!-- </div> -->
+  </Carousel.Inner>
+  <Carousel.Controls id={id} />
+</Carousel>
+
+<style>
+    .carousel-control-prev-icon{
+        color: black;
+    }
+    .carousel-inner{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .carousel-images{
+        width: 10%;
+        margin: auto;
+        height: 10%;
+    }
+
+    .carousel-fade .carousel-item.active, .carousel-fade .carousel-item-next.carousel-item-start, .carousel-fade .carousel-item-prev.carousel-item-end {
+    z-index: 1;
+    opacity: 1;
+    width: 20%;
+    margin: 0;
+    }
+</style>

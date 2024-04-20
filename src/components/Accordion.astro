@@ -1,0 +1,204 @@
+---
+interface BodyLine {
+  text: string;
+  link?: string
+}
+interface AccordionItem{
+  heading : string;
+  body : BodyLine[];
+}
+
+const accordionItems: AccordionItem[] = [
+    {
+      heading: "FOSSEE and Spoken Tutorial",
+      body: [
+        {text:"1. Arduino Tutorial Series by Spoken Tutorial", link:'https://spoken-tutorial.org/tutorial-search/?search_foss=Arduino&search_language=English'},
+        {text:"2. FLOSS-Arduino books teach Arduino control via open-source software", link : 'https://floss-arduino.fossee.in/'},
+      ],
+    },
+    {
+      heading: "Soil Nutrients Monitoring and Precision Agriculture",
+      body: [
+        {text:"1. Water Your Garden with IoT - Soil Moisture Sensors", link:'https://www.youtube.com/watch?v=pgGpuws7f9o'},
+        {text:"2. New Blynk IOT Smart Plant Monitoring System", link : 'https://www.youtube.com/watch?v=PTJ9sAk2c2I'},
+      ],
+    },
+    {
+      heading: "Weather Station",
+      body: [
+        {text:"1. DIY Smart Home Weather Station - Wind, Rain, Temperature, Pressure, Humidity, Ligh", link:'https://www.youtube.com/watch?v=snCp0TqrER4'},
+        {text:"2. Arduino Wireless Weather Station Project", link : 'https://www.youtube.com/watch?v=l3-y371RlI4'},
+        {text:"3. LoRa Based Wireless Weather Station using Arduino and ESP32", link : 'https://www.youtube.com/watch?v=Nw392q1Sg4M'}
+      ],
+    },
+    {
+      heading: "Air Quality and Noise Pollution Level",
+      body: [
+        {text:"1. Air Quality Monitoring and Alert System using Arduino with MQ135", link:'https://www.youtube.com/watch?v=SCXteaUVICw'},
+        {text:"2. IoT based Noise & Air quality Monitoring using blynk IoT | New Automation Tab update in Blynk", link : 'https://www.youtube.com/watch?v=p3-0mWkOFBk'},
+      ],
+    },
+    {
+      heading: "Asset Tracking",
+      body: [
+        {text:"1. IOT Asset Tracking System", link:'https://www.youtube.com/watch?v=zFn487G2pY8'},
+        {text:"2. Arduino Gps And Gsm Based location Tracking System | Women Safety Device Small Version", link : 'https://www.youtube.com/watch?v=rdvZpwV9A18'},
+      ],
+    },
+    {
+      heading: "Global Warming",
+      body: [
+        {text:"1. Smart Grid: How IoT fights climate change (Kelsey Breseman)", link : 'https://www.youtube.com/watch?v=0SulU4QM334'},
+      ],
+    },
+    {
+      heading: "Disaster Management",
+      body: [
+        {text:"1. Geospatial data for disaster management at ITC", link : 'https://www.youtube.com/watch?v=dYG7GsqcCMM'},
+      ],
+    },
+    {
+      heading: "Vehicle Detection and Intelligent Transportation",
+      body: [
+        {text:"1. Intelligent Transport Systems made in KOREA English Version 22\'", link:'https://www.youtube.com/watch?v=H_JhcBTgwPo'},
+        {text:"2. Connected Vehicle: The Future of Transportation", link : 'https://www.youtube.com/watch?v=Q8Cn47L8FRQ'},
+      ],
+    },
+  ];
+---
+<section>
+{
+  accordionItems.map((accordion)=>(
+      <div class="faq">
+        <div class="question">
+          <h3>{accordion.heading}</h3>
+          <svg width = '15' height = '10' viewBox = '0 0 42 25'>
+             <path d = 'M3 3L21 21L39 3' stroke = 'white' stroke-width="7" stroke-linecape="round" /> 
+           </svg> 
+        </div>
+        <div class="answer">
+          {
+            accordion.body.map((bodyLine) => (
+              <p>
+                <a href={bodyLine.link}>{bodyLine.text}</a>
+              </p>
+            ))
+          }
+        </div>
+      </div>
+    ))
+  }
+</section>
+
+
+<style>
+
+  section{
+    display: flex;
+    flex-direction: column;
+    margin : 0 auto;
+    width: 60%;
+  }
+
+  .faq{
+    max-width: 100vw;
+    cursor: pointer;
+    border: 1px solid #f6f4f4;
+  }
+
+  .question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1c70cf;
+    background-color: rgba(0, 0, 0, .02); 
+    padding: 1rem 2rem;
+  }
+
+  .question h3{
+    font-size: 1.1rem;
+  }
+
+  .question h3:hover{
+    text-decoration: underline;
+    color: #1662b8;
+  }
+
+  .answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease;
+  }
+
+  .answer p{
+    padding: 1vh 3vh;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+    color: black;
+    font-weight: 500;
+    background-color: white;
+  }
+
+  .answer p a{
+    color: #17a2b8;
+    text-decoration: none;
+  }
+
+  .answer p a:hover{
+    text-decoration: underline;
+    color: #0e8fa3;
+  }
+
+  .faq.active .answer{
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+  }
+
+  .faq.active svg{
+    transform: rotate(180deg);
+  }
+
+  svg{
+    display: none;  /* If you want the icon besides the accordion, remove this line */
+    transition: transform 0.5s ease-in;
+  }
+
+  @keyframes fade {
+    from{
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    .to{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    section{
+      width: 90%;
+    }
+    .answer p{
+      padding: 0.4vh 3vh;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+</style>
+
+
+<script>
+
+  const faqs = document.querySelectorAll('.faq');
+
+  faqs.forEach(faq => {
+    faq.addEventListener('click', () => {
+      faq.classList.toggle('active');
+    })
+  })
+
+</script>
+
+

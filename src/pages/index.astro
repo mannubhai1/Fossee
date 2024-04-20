@@ -4,16 +4,20 @@ import TopBar from '../components/TopBar.astro';
 import Navbar from '../components/Navbar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import HomeContent from '../components/HomeContent.astro';
+import HomeBody from '../components/HomeBody.astro';
+import IconBar from '../components/IconBar.astro';
 ---
 
 <Layout title="Welcome to FOSSEE.">
 	<main>
-		<TopBar />
-		<Navbar />
-		<Header />
-		<HomeContent />
-		<Footer/>
+		<div class="main">
+			<TopBar />
+			<Navbar />
+			<Header />
+			<IconBar />
+			<HomeBody />
+			<Footer/>
+		</div>
 	</main>
 </Layout>
 
