@@ -1,25 +1,143 @@
 ---
-import 'bootstrap/dist/css/bootstrap.css'
+
+interface Routes {
+  path: string;
+  name: string;
+}
+
+const routes : Routes[] = [
+  { path: '/', name: 'Home' },
+  { path: '#purpose', name: 'About' },
+  { path: '/resources', name: 'Resources' },
+  { path: '/schedule', name: 'Schedule' },
+  { path: '#register', name: 'Register' },
+  { path: '#partners', name: 'Partners' },
+  { path: '#contact-us', name: 'Contact Us' },
+
+]
 ---
 
-<div class="navbar">
-  <a href="/" class="text-blue-800">Home</a>
-  <a href="#purpose" class="text-blue-800">About</a>
-  <a href="/resources" class="text-blue-800">Resources</a>
-  <a href="/schedule" class="text-blue-800">Schedule</a>
-  <a href="#register" class="text-blue-800">Register</a>
-  <a href="#partners" class="text-blue-800">Partners</a>
-  <a href="#contact-us" class="text-blue-800">Contact Us</a>
+
+<div class="navbar">{
+  routes.map(route => (
+    <a href={ route.path } class="text-blue-800">{ route.name }</a>
+  ))
+}</div>
+
+
+<div class="hamburger-navbar">
+  <nav>
+    <div class="ham-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</div>
+<div class="off-screen-menu">
+  {
+    routes.map(route => (
+      <a href={ route.path } class="text-blue-800">{ route.name }</a>
+    ))
+  }
 </div>
   <style>
+  
+    .hamburger-navbar{
+      position: fixed;
+      right: 0%;
+      display: none;
+    }
+    .off-screen-menu{
+      background-color: orange;
+      height: 45vh;
+      display: none;
+      width: 100%;
+      z-index: 5;
+      top: 22%;
+      position: sticky;
+      right: -450px;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .off-screen-menu a{
+      font-size: 2.9vh;
+      text-decoration: none;
+      color: black;
+      font-weight: 400;
+      padding: 1vh 4vh;
+      z-index: 1001;
+    }
+    .off-screen-menu a:hover{
+      background-color: rgb(5, 5, 95);
+      color: white;
+    }
+
+    .off-screen-menu:active{
+      right: 0;
+    }
+    .active{
+      display: flex;
+    }
+
+    nav{
+      display: block;
+      background-color: orange;
+      padding: 1rem;
+      width: 100vw;
+      z-index: 10;
+    }
+    .ham-menu{
+      height: 40px;
+      width: 40px;
+      margin-left: auto;
+      position: sticky;
+      top: 0;
+    }
+
+    .ham-menu span{
+      height: 5px;
+      width: 100%;
+      background-color: #6f86ff;
+      border-radius: 25px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transition: .3s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    .ham-menu span:nth-child(1){
+      top: 25%;
+    }
+    .ham-menu span:nth-child(3){
+      top: 75%;
+    }
+
+    .ham-menu.active span:nth-child(1){
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .ham-menu.active span:nth-child(2){
+      opacity: 0;
+    }
+
+    .ham-menu.active span:nth-child(3){
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
     .navbar {
       font-family: 'Roboto', sans-serif;
       display: flex;
       justify-content: space-around;
-      padding: 0 20vw;
+      padding: 0 10.8vw;
       background-color: rgb(252, 230, 188);
       position: sticky;
-      top: 0; /* Add this line */
+      top: 0%; /* Add this line */
       z-index: 1000;
     }
     .navbar a {
@@ -34,13 +152,52 @@ import 'bootstrap/dist/css/bootstrap.css'
     }
 
     @media screen and (max-width: 613px) {
-    .container {
-      width: 100%; /* Adjust as needed */
+      .container {
+        width: 100%; /* Adjust as needed */
+      }
+      .navbar{
+        padding: 0 10vw;
+      }
     }
 
-    .navbar{
-      padding: 0 10vw;
+    @media screen and (max-width: 627px){
+      .off-screen-menu{
+        top: 18%;
+      }
     }
-  }
+    @media screen and (max-width: 770px){
+      .off-screen-menu{
+        top: 20%;
+      }
+    }
+    @media screen and (max-width: 982px){
+      .hamburger-navbar{
+        display: block;
+      }
+      .navbar{
+        display: none;
+      }
+      .nav{
+        padding: 1.3rem;
+      }
+    }
+    @media screen and (min-width: 983px){
+      .off-screen-menu{
+        display: none;
+      }
+
+    }
+
   </style>
 
+<script>
+
+  const hamMenu = document.querySelector('.ham-menu');
+  const offScreenMenu : Element | null = document.querySelector('.off-screen-menu');
+
+  hamMenu?.addEventListener('click', () => {
+    hamMenu.classList.toggle('active');
+    if(offScreenMenu)
+      offScreenMenu.classList.toggle('active');
+  })
+</script>
