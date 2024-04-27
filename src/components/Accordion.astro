@@ -80,7 +80,7 @@ const accordionItems: AccordionItem[] = [
           {
             accordion.body.map((bodyLine) => (
               <p>
-                <a href={bodyLine.link}>{bodyLine.text}</a>
+                <a href={bodyLine.link} target="_blank">{bodyLine.text}</a>
               </p>
             ))
           }
@@ -101,7 +101,7 @@ const accordionItems: AccordionItem[] = [
   }
 
   .faq{
-    max-width: 100vw;
+    max-width: 100%;
     cursor: pointer;
     border: 1px solid #f6f4f4;
   }

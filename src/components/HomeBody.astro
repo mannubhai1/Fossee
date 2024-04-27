@@ -109,7 +109,7 @@ const coreteam: CoreTeam[] = [
 <div class="registration-container" id ="register">
     <h1 class="intro">Registration</h1>
     <p>Please click on the following button to register yourself for the Hackathon</p>
-    <div class="hack-button"> <a href="https://forms.gle/aVopwiwmRM35FXQT8"><button class="btn-register slide-right">Register</button></a></div>
+    <div class="hack-button"> <a href="https://forms.gle/aVopwiwmRM35FXQT8" target="_blank"><button class="btn-register slide-right">Register</button></a></div>
 </div>
 
 
@@ -161,7 +161,7 @@ const coreteam: CoreTeam[] = [
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" {...props}>
             <path fill="black" d="M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2m-2.2 2L16 14.78L6.2 8ZM4 24V8.91l11.43 7.91a1 1 0 0 0 1.14 0L28 8.91V24Z" />
         </svg>
-        Email : <a href="mailto:contact-oshw@fossee.in ">contact-oshw[at]fossee[dot]in </a>
+        Email : <a href="mailto:contact-oshw@fossee.in" target="_blank">contact-oshw[at]fossee[dot]in </a>
     </p>
 </div>
 
@@ -175,6 +175,7 @@ const coreteam: CoreTeam[] = [
         flex-direction: column;
         justify-content: center;
         padding: 0 10vh;
+        width: 100%;
     }
     .intro{
         color: rgb(2, 2, 110);
@@ -299,8 +300,18 @@ const coreteam: CoreTeam[] = [
         text-align: center;
         font-size: 2.5vh;
         padding: 1vh 0;
-        /* font-weight: 500; */
+        font-weight: 500;
     }
+    .email a{
+        text-decoration: none;
+        color: rgb(31, 104, 128);
+    }
+
+    .email a:hover{
+        color: blue;
+        text-decoration: underline;
+    }
+
     .email svg{
         display: inline;
         margin: 0 1vh
