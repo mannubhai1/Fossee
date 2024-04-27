@@ -41,8 +41,8 @@ const routes : Routes[] = [
     ))
   }
 </div>
-  <style>
-  
+<style>
+
     .hamburger-navbar{
       position: fixed;
       right: 0%;
@@ -54,7 +54,7 @@ const routes : Routes[] = [
       display: none;
       width: 100%;
       z-index: 5;
-      top: 22%;
+      top: 20%;
       position: sticky;
       right: -450px;
       flex-direction: column;
@@ -66,7 +66,8 @@ const routes : Routes[] = [
       font-size: 2.9vh;
       text-decoration: none;
       color: black;
-      font-weight: 400;
+      /* color: blue; */
+      font-weight: 500;
       padding: 1vh 4vh;
       z-index: 1001;
     }
@@ -142,6 +143,7 @@ const routes : Routes[] = [
     }
     .navbar a {
       font-size: 2.2vh;
+      color: blue;
       font-weight:600;
       text-decoration: none;
       padding: 1.7vh 1.5vw;
@@ -151,8 +153,10 @@ const routes : Routes[] = [
       color: white;
     }
 
-    @media screen and (max-width: 550px){
-      
+    @media screen and (max-width: 465px){
+      nav{
+        width: 100vh;
+      }
     }
 
     @media screen and (max-width: 613px) {
@@ -166,23 +170,24 @@ const routes : Routes[] = [
 
     @media screen and (max-width: 627px){
       .off-screen-menu{
-        top: 18%;
+        /* top: 17.5vh; */
+        top: 15.8vh;
       }
     }
-    @media screen and (max-width: 770px){
+    @media screen and (min-width: 628px) and (max-width: 768px){
       .off-screen-menu{
-        top: 20%;
-      }
-      .active{
-        top: 13%;
+        top: 17vh;
       }
     }
     @media screen and (min-width: 772px) and (max-width: 982px){
-      .nav{
+      nav{
         padding: 1.3rem;
       }
       .active{
-        top: 12vh;
+        top: 21vh;
+      }
+      nav{
+        width: 100vw;
       }
     }
     @media screen and (max-width: 982px){
@@ -191,9 +196,6 @@ const routes : Routes[] = [
       }
       .hamburger-navbar{
         display: block;
-      }
-      nav{
-        width: 100vh;
       }
       
     }
