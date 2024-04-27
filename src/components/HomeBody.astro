@@ -109,7 +109,12 @@ const coreteam: CoreTeam[] = [
 <div class="registration-container" id ="register">
     <h1 class="intro">Registration</h1>
     <p>Please click on the following button to register yourself for the Hackathon</p>
-    <div class="hack-button"> <a href="https://forms.gle/aVopwiwmRM35FXQT8" target="_blank"><button class="btn-register slide-right">Register</button></a></div>
+    <div class="regBtnContainer">
+        <div class="hack-button">
+            <div id="slide"></div>
+            <a href="https://forms.gle/aVopwiwmRM35FXQT8" target="_blank">Register</a>
+        </div>
+    </div>
 </div>
 
 
@@ -236,10 +241,60 @@ const coreteam: CoreTeam[] = [
         font-size: 2.5vh;
     }
 
-    .hack-button{
-        text-align: center;
-        display: block;
+    .regBtnContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hack-button {
+        display: flex;
+        flex-direction: column;
         padding: 1vh 2vw;
+        z-index: 0;
+        width: 20vw;
+        max-width: 40vw;
+        border: 2px solid blue;
+        margin: 20px 20px 20px 20px;
+        color: blue;
+        background-color: white;
+        text-decoration: none;
+        font-size: 2vh;
+        letter-spacing: 1.5px;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        overflow: hidden;
+    }
+
+    .hack-button {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .hack-button a {
+        position: relative;
+        text-decoration: none;
+        transition: all .35s ease-Out;
+    }
+
+    #slide {
+        width: 100%;
+        height: 100%;
+        left: -400px ;
+        background: #BFC0C0;
+        position: absolute;
+        bottom: 0;
+        transition: all .35s ease-Out;
+    }
+
+    .hack-button:hover #slide {
+        left: 0;
+        background-color: rgb(6, 6, 77);
+    }
+    .hack-button:hover a{
+        color: white;
     }
 
     .pno-container{
@@ -332,7 +387,7 @@ const coreteam: CoreTeam[] = [
         align-items: center;
         border: 1px solid black;
         padding: 2vh 4vw;
-        border-radius: 21px;
+        border-radius: 11px;
         margin: 2vh;
         width: 45%;
     }
@@ -341,6 +396,7 @@ const coreteam: CoreTeam[] = [
         font-family: 'Roboto', sans-serif;
         font-weight: 600;
         font-size: 2.7vh;
+        text-align: center;
     }
     .teach p{
         font-size: 2.4vh;
@@ -357,7 +413,7 @@ const coreteam: CoreTeam[] = [
             flex-direction: column;
         }
         .teach{
-            width: 90%;
+            width: 100%;
         }
         .teach h4{
             text-align: center;
