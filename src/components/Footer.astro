@@ -1,37 +1,113 @@
 ---
+
+interface aboutList {
+    name: string;
+    link: string;
+}
+
+interface footerContent {
+    about: aboutList[];
+    resources: aboutList[];
+}
+
+const footerData: footerContent = {
+    about: [
+        {
+            name: 'IIT Bombay',
+            link: 'https://www.iitb.ac.in/'
+        },
+        {
+            name: 'FOSSEE',
+            link: 'https://fossee.in/'
+        },
+        {
+            name: 'NMEICT',
+            link: 'https://www.nmeict.ac.in/'
+        },
+        {
+            name: 'The RuDRA Lab',
+            link: 'https://www.rudra.iitb.ac.in/'
+        },
+        {
+            name: 'IITTNiF',
+            link: 'https://www.iittnif.org/'
+        },
+        {
+            name: 'ICFOSS',
+            link: 'https://www.icfoss.in/'
+        },
+        {
+            name: 'Spoken Tutorial',
+            link: 'https://spoken-tutorial.org/'
+        }
+    ],
+    resources: [
+        {
+            name: 'QGIS',
+            link: 'https://qgis.org/en/site/forusers/download.html'
+        },
+        {
+            name: 'Spoken Tutorials - FOSSEE - GIS',
+            link: 'https://spoken-tutorial.org/tutorial-search/?search_foss=QGIS&search_language=English'
+        }
+    ]
+}
+
 ---
 
 <div class="footer">
     <div class="footer-content">
         <ul class="about-list">
-            <h2>About</h2>
-            <li><a class="footer-links" href="https://www.iitb.ac.in/" target="_blank">IIT Bombay</a></li>
-            <li><a class="footer-links" href="https://fossee.in/" target="_blank">FOSSEE</a></li>
-            <li><a class="footer-links" href="https://www.iittnif.org/" target="_blank">IITTNiF</a></li>
-            <li><a class="footer-links" href="https://spoken-tutorial.org/" target="_blank">Spoken Tutorial</a></li>
+            <h2>About</h2>{
+                footerData.about.map((item) => {
+                    return (
+                        <li><a class="footer-links" href={item.link} target="_blank">{item.name}</a></li>
+                    )
+                })
+            }
         </ul>
     </div>
     <div class="footer-content">
         <ul>
-            <h2>Resources</h2>
-            <li><a class="footer-links" href="https://qgis.org/en/site/forusers/download.html" target="_blank">QGIS</a></li>
-            <li><a class="footer-links" href="https://spoken-tutorial.org/tutorial-search/?search_foss=QGIS&search_language=English" target="_blank">Spoken Tutorials - FOSSEE - QGIS</a></li>
+            <h2>Resources</h2>{
+                footerData.resources.map((item) => {
+                    return (
+                        <li><a class="footer-links" href={item.link} target="_blank">{item.name}</a></li>
+                    )
+                })
+            }
         </ul>
     </div>
     <div class="license-container">
         <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
             <img class ="license-img" alt="Creative Commons License" style="border-width:0" src="https://iitb-isro-aicte-mapathon.fossee.in/static/cms/uploads/images/88x31.png">
         </a>
-        <p class="license">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</p>    
+        <p class="license">
+            <span>
+                This work is licensed under a 
+            </span>
+            <a href="http://creativecommons.org/licenses/by-sa/4.0/">
+                Creative Commons Attribution-ShareAlike 4.0 International License.</p>    
+            </a>
     </divmcl>
 </div>
 
   <style>
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    a:hover{
+        color: #f2f2f2;
+        text-decoration: underline;
+    }
     .footer {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        background-color: #060606;
+        background-color: #3374ff;
         color: white;
         flex-direction: row;
         padding: 4vh;
@@ -42,7 +118,6 @@
         padding: 3vw;
         justify-content: center;
         align-items: center;
-        background-color: #000000;
         flex-direction: column;
     }
     li{
@@ -50,11 +125,20 @@
     }
     .footer-links{
         text-decoration: none;
-        color: aliceblue
+        color: aliceblue;
+        font-weight: 700;
     }
 
     .license-container{
-        padding: 3vw;
+        padding: 2vw;
+    }
+
+    .about-list a{
+        color: white;
+    }
+
+    .license span{
+        color: black;
     }
 
     @media screen and (max-width: 554px) {

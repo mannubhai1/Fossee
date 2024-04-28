@@ -9,9 +9,20 @@ import 'bootstrap/dist/css/bootstrap.css'
     <div class="registration">
         <h2 class="hack-heading" style="color: #000080ff;">IIT Bombay-FOSSEE-GIS/OSHW, IITTNiF &amp; <br> ICFOSS presents</h2>
         <div class="hack-img"><img src="https://iot-gis-hackathon.fossee.org/static/cms/uploads/images/right-img.png" id="right-img"></div>
-        <div class="hack-button">
-            <div id="slide"></div>
-            <a href="#register">Register</a>
+        <div class="btn-Container">
+            <p>
+                Registration opens: April 29, 2023 <br>
+
+                Registration closes: June 10, 2024 <br>
+                
+                Hackathon start date : June 12, 2024 <br>
+                
+                Result Declaration: July 31, 2024
+            </p>
+            <div class="hack-button">
+                <div id="slide"></div>
+                <a href="#register">Register</a>
+            </div>
         </div>
     </div>
 </div>
@@ -22,9 +33,10 @@ import 'bootstrap/dist/css/bootstrap.css'
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        padding-top: 20vh;
         width: 100%;
-        height: 80vh;
-        padding: 1vh;
+        height: 100vh;
+        padding: 1vh;;
         background-color: rgb(252, 230, 188);
         animation: zoomIn 3s; 
         z-index: 1000;
@@ -44,7 +56,6 @@ import 'bootstrap/dist/css/bootstrap.css'
         flex-wrap: wrap;
     }
     .hack-heading{
-        font-family: 'Roboto Slab', serif !important;
         font-size: 4.6vh;
         text-align: center;
         word-wrap: break-word;
@@ -55,29 +66,20 @@ import 'bootstrap/dist/css/bootstrap.css'
         width: 100%;
     }
 
-    
-    /* .btn-register{
-        background-color: #000080ff;
-        width: 30vw;
+    .btn-Container{
+        background-color: rgb(86, 50, 1);
         color: white;
-        border: 3px solid white;
-        padding: 1.5vh;
-        font-size: 20px;
-        font-weight: 600;
-        border-radius: 5px;
-        cursor: pointer;
-        border-radius: 12px;
-        font-family: "Lucida Console", Monaco, 
-    } */
-    
-    /* .hack-button{
-        margin: 2vh;
-        width: 50vw;
+        font-weight: 700;
+        font-size: 3vh;
+        padding: 1vh 10vw;
+        border-radius: 20px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 1vh 2vw;
-    } */
+        margin: 2vh;
+    }
+
     .hack-button {
         display: flex;
         flex-direction: column;
@@ -96,6 +98,7 @@ import 'bootstrap/dist/css/bootstrap.css'
         justify-content: center;
         font-weight: 500;
         overflow: hidden;
+        box-shadow: 0 0 5px #000080, 0 0 5px #000080 inset;
     }
 
     .hack-button {
@@ -138,11 +141,8 @@ import 'bootstrap/dist/css/bootstrap.css'
     }
 
     @media screen and (max-width: 754px) {
-        .registration{
-            margin-top: 10vh;
-        }
         .head{
-            flex-direction: column-reverse;
+            flex-direction: row;
             height: 100vh;
         }
 
@@ -164,10 +164,20 @@ import 'bootstrap/dist/css/bootstrap.css'
         }
     }
 
-    @media screen and (max-width: 982px) {
+    @media screen and (min-width: 748px) and (max-width: 982px) {
+        
         .head{
             margin-top: 6vh;
-            /* margin-top: 8vh; */
+        }
+    }
+    @media screen and (max-width: 982px) {
+        
+        .hack-heading{
+            font-size: 3vh;
+        }
+        .btn-Container{
+            font-size: 2vh;
+            padding: 0vh 3vw;
         }
     }
 
