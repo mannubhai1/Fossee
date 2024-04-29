@@ -48,7 +48,7 @@ const routes : Routes[] = [
       position: fixed;
       right: 0%;
       display: none;
-      z-index: 1000;
+      z-index: 1001;
     }
     .off-screen-menu{
       background-color: orange;
@@ -61,7 +61,7 @@ const routes : Routes[] = [
       flex-direction: column;
       justify-content: center;
       font-size: 3rem;
-      z-index: 1000;
+      z-index: 1001;
     }
 
     .off-screen-menu a{
@@ -107,7 +107,7 @@ const routes : Routes[] = [
       position: absolute;
       top: 50%;
       left: 50%;
-      transition: .3s ease;
+      /* transition: .3s ease; */
       transform: translate(-50%, -50%);
     }
 
@@ -177,12 +177,12 @@ const routes : Routes[] = [
     }
     @media screen and (min-width: 628px) and (max-width: 768px){
       .off-screen-menu{
-        top: 15vh;
+        top: 17vh;
       }
     }
     @media screen and (min-width: 767px) and (max-width: 982px){
       nav{
-        padding: 1.3rem;
+        padding: 1rem;
       }
       .active{
         top: 20vh;

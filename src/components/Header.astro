@@ -71,13 +71,13 @@ import 'bootstrap/dist/css/bootstrap.css'
         color: white;
         font-weight: 700;
         font-size: 3vh;
-        padding: 1vh 10vw;
+        padding: 1vh 4vw;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 2vh;
+        margin: 2vh; 
     }
 
     .hack-button {
@@ -140,10 +140,15 @@ import 'bootstrap/dist/css/bootstrap.css'
         }
     }
 
-    @media screen and (max-width: 754px) {
+    @media screen and (max-width: 748px) {
         .head{
-            flex-direction: row;
-            height: 100vh;
+            /* flex-direction: row; */
+            padding-top: 4vh;
+            flex-direction: column-reverse;
+            position: relative;
+            top: 7vh;
+            margin-bottom: 10vh;
+            height: 100%;
         }
 
         .hack-heading{
@@ -162,22 +167,36 @@ import 'bootstrap/dist/css/bootstrap.css'
         .map img{
             height: 40vh;
         }
+        .btn-Container{
+            font-size: 2vh;
+            padding: 0vh 3vw;
+        }
     }
 
-    @media screen and (min-width: 748px) and (max-width: 982px) {
+    @media screen and (min-width: 749px) and (max-width: 982px) {
         
         .head{
             margin-top: 6vh;
+        }
+        .map img{
+            height: 40vh;
         }
     }
     @media screen and (max-width: 982px) {
         
         .hack-heading{
-            font-size: 3vh;
+            font-size: 4.5vh;
         }
         .btn-Container{
             font-size: 2vh;
-            padding: 0vh 3vw;
+            padding: 0vh 2vw;
+        }
+        .btn-Container p{
+            padding: 1vh;
+            margin: 0;
+        }
+        .registration{
+            padding: 1vh;
         }
     }
 
