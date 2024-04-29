@@ -46,7 +46,7 @@ const routes : Routes[] = [
 
     .hamburger-navbar{
       position: fixed;
-      right: 0%;
+      right: 0;
       display: none;
       z-index: 1001;
     }
@@ -154,10 +154,11 @@ const routes : Routes[] = [
       color: white;
     }
 
-    @media screen and (max-width: 465px){
+    @media screen and (max-width: 535px){
       nav{
         width: 100vh;
       }
+      
     }
 
     @media screen and (max-width: 613px) {
@@ -172,23 +173,26 @@ const routes : Routes[] = [
     @media screen and (max-width: 627px){
       .off-screen-menu{
         /* top: 17.5vh; */
-        top: 15.8vh;
+        top: 14vh;
       }
     }
-    @media screen and (min-width: 628px) and (max-width: 768px){
+    @media screen and (min-width: 628px) and (max-width: 792px){
       .off-screen-menu{
-        top: 17vh;
+        top: 17vw;
       }
     }
-    @media screen and (min-width: 767px) and (max-width: 982px){
+    @media screen and (min-width: 792px) and (max-width: 880px){
+      .active{
+        top: 16vw;
+      }
+    }
+    @media screen and (min-width: 880px) and (max-width: 982px){
       nav{
         padding: 1rem;
+        width: 100vw;
       }
       .active{
-        top: 20vh;
-      }
-      nav{
-        width: 100vw;
+        top: 19vh;
       }
     }
     @media screen and (max-width: 982px){
