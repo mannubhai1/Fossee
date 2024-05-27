@@ -1,0 +1,83 @@
+---
+import Login from "./Login.astro";
+
+---
+
+<div class="resultsContainer">
+    <div class="pre min-h-screen flex flex-col items-center justify-center">
+        <h1 class="mb-10">Results will be announced soon</h1>
+        <Login />
+    </div>
+    <div class="post min-h-screen hidden">
+        <h1>You got 100%</h1>
+    </div>
+</div>
+  <style>
+  </style>
+
+  <script>
+var resultDate = {
+  year: 2024,
+  month: 5,
+  day: 28,
+  hours: 11,
+  minutes: 7,
+  seconds: 50,
+};
+
+function checkTime() {
+  var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1; // getMonth() returns 0-11
+  var year = currentDate.getFullYear();
+  var hours = currentDate.getHours();
+  var minutes = currentDate.getMinutes();
+  var seconds = currentDate.getSeconds();
+
+  console.log(
+    "Date: " +
+      day +
+      "/" +
+      month +
+      "/" +
+      year +
+      " Time: " +
+      hours +
+      ":" +
+      minutes +
+      ":" +
+      seconds
+  );
+  console.log(
+    "Result Date: " + resultDate.day +
+      "/" +
+      resultDate.month +
+      "/" +
+      resultDate.year +
+      " Time: " +
+      resultDate.hours +
+      ":" +
+      resultDate.minutes +
+      ":" +
+      resultDate.seconds
+  );
+
+  var currentTime = new Date(year, month - 1, day, hours, minutes, seconds);
+  var targetTime = new Date(resultDate.year, resultDate.month - 1, resultDate.day, resultDate.hours, resultDate.minutes, resultDate.seconds);
+
+  if (currentTime >= targetTime) {
+    // location.reload();    
+    document.querySelector(".pre")?.classList.add("hidden");
+    document.querySelector(".post")?.classList.remove("hidden");
+    document.querySelector(".post")?.classList.add("flex");
+    document.querySelector(".post")?.classList.add("items-center");
+    document.querySelector(".post")?.classList.add("justify-center");
+  } else {
+    // setTimeout(checkTime, 1000); // Check every second
+  }
+}
+
+// Initial call to checkTime
+checkTime();
+  </script>
+
