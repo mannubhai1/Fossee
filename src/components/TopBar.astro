@@ -1,5 +1,6 @@
 ---
 import 'bootstrap/dist/css/bootstrap.css'
+import bannerJson from "../../public/jsonData/topbar.json"
 
 interface BannerImages {
   link: string;
@@ -9,70 +10,13 @@ interface BannerImages {
   id? : string;
 }
 
-const bannerImages : BannerImages[] = [
-  {
-    link: "http://iitb.ac.in/",
-    image: "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/iitb-logo.png",
-    alt: "IITB",
-    classname: "img-fluid logos",
-    id: "iitb"
-  },
-  {
-    link: "https://fossee.in",
-    image: "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/fossee-logo.png",
-    alt: "FOSSEE",
-    classname: "img-fluid logos"
-  },
-  {
-    link: "https://nmeict.ac.in",
-    image: "https://fossee.in/sites/all/themes/software_responsive_theme/img/nmeict-logo.png",
-    alt: "NMEICT",
-    classname: "img-fluid logos"
-  },
-  {
-    link: "http://www.rudra.iitb.ac.in/",
-    image: "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/rudra-logo.png",
-    alt: "Rudra",
-    classname: "img-fluid logos"
-  },
-  {
-    link: "https://www.iittp.ac.in/",
-    image: "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/iit-tirupati.png",
-    alt: "IIT Tirupati",
-    classname: "img-fluid logos"
-  },
-  {
-    link: "https://iittnif.com/",
-    image: "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/navavishkaar.png",
-    alt: "IITTNiF",
-    classname: "img-fluid logos"
-  },
-  {
-    link: "https://nmicps.in/",
-    image: "https://iot-gis-hackathon.fossee.org/static/cms/uploads/images/NM-ICPS-logo1.png",
-    alt: "NMICPS",
-    classname: "img-fluid logos"
-  },
-  {
-    link: "https://www.icfoss.in/",
-    image: "https://iot-gis-hackathon.fossee.in/static/cms/uploads/images/icfoss-logo.png",
-    alt: "icfoss",
-    classname: "img-fluid logos big-img"
-  },
-  {
-    link: "https://spoken-tutorial.org",
-    image: "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/st-logo.png",
-    alt: "Spoken Tutorial",
-    classname: "img-fluid logos"
-  },
-
-]
+const bannerData : BannerImages[] = bannerJson;
 ---
 
 <div class="banner-content">
     <div id="top-logo-placeholder">
       <div class="d-flex justify-content-center">{
-        bannerImages.map((image) => {
+        bannerData.map((image) => {
           return (
             <div class="p-2 pb-1">
               <a href={image.link} target="_blank">

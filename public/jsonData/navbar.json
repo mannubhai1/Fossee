@@ -1,0 +1,11 @@
+[
+  { "path": "/", "name": "Home" },
+  { "path": "/#purpose", "name": "About" },
+  { "path": "/resources", "name": "Resources" },
+  { "path": "/schedule", "name": "Schedule" },
+  { "path": "/#register", "name": "Register" },
+  { "path": "/#partners", "name": "Partners" },
+  { "path": "/#contact-us", "name": "Contact Us" },
+  { "path": "/#faq", "name": "FAQ" },
+  { "path": "/results", "name": "Results" }
+]

@@ -1,0 +1,92 @@
+{
+  "significance": [
+    {
+      "intro": "In a world where technology shapes our daily lives, the significance of this hackathon cannot be overstated. Here, participants have the opportunity to redefine the boundaries of what's possible. By merging open source principles with cutting-edge technologies, we aim to:",
+      "point": [
+        "Solve Real-World Problems: Tackle critical issues such as environmental sustainability, disaster management, precision agriculture, and more. Your solutions can change lives and protect our planet.",
+        "Foster Innovation: Innovation thrives when knowledge is shared openly. By promoting open source hardware and IoT, we empower you to push the boundaries of creativity and discovery.",
+        "Create Collaborative Communities: Through this hackathon, we build communities of like-minded individuals passionate about making a difference. Together, we can achieve more than any one of us can alone.",
+        "Empower Future Leaders: Whether you're a student, a professional, or an enthusiast, this hackathon is a launchpad for your ideas. It's a chance to develop your skills, showcase your talents, and make your mark on the world."
+      ],
+      "end": "Join us on this extraordinary journey, where innovation knows no bounds. Together, let's turn ideas into actions and make a lasting impact on society and the environment. The Open Source Hardware IoT GIS Hackathon is your stage to shine, and the world is waiting to witness your brilliance."
+    }
+  ],
+
+  "purpose": [
+    "This hackathon is more than just a competition; it's a platform for innovators, creators, and visionaries to come together and pioneer solutions for a brighter future. Our purpose is to harness the power of open source hardware, the Internet of Things (IoT), and Geographic Information Systems (GIS) to address some of the world's most pressing challenges.",
+
+    "The FOSSEE project, IIT Bombay promotes the use of Free/ Libre Open Source Software in academia and Industry. The FOSSEE project  is funded through the National Mission on Education through ICT (NMEICT), Ministry of Education, Government of India. The FOSSEE-GIS team manages the overall coordination of the 'IIT Bombay FOSSEE GIS Internship in Geospatial Dashboard Design and Implementation'."
+  ],
+  "partners": [
+    {
+      "name": "Main Organizer: IIT Bombay FOSSEE GIS & OSHW project (NMEICT, Ministry of Education, Government of India) ",
+      "description": "The IIT Bombay FOSSEE GIS & OSHW project teams are the main organizers of this National Level Geospatial IoT Hackathon 2024 (Edition 01). FOSSEE promotes the usage of Free/Libre Open Source Software in academia and industry and is funded through the National Mission on Education through ICT, Ministry of Education, Government of India."
+    },
+    {
+      "name": "Technical Partner:",
+      "description": "The Rural Data Research and Analysis (RuDRA) Lab, IIT Bombay is India's first HPC-powered data center dedicated to Rural Development."
+    },
+    {
+      "name": "Organizing Partners:    IITTNiF (NM-ICPS, DST, Government of India) & ICFOSS (Government of Kerala): ",
+      "description": "The <span> IIT Tirupati Navavishkar I-Hub Foundation </span> is the Technology Innovation Hub specializing in Positioning and Precision Technologies, funded through the National Mission on Interdisciplinary Cyber-Physical System (NM-ICPS), Department of Science and Technology, Government of India."
+    },
+    {
+      "name": "ICFOSS: he International Centre for Free and Open Source Software (ICFOSS) is an autonomous organization set up by the Government of Kerala, India,",
+      "description": "and has the combined mandate of popularizing Free and Open Source Software for universal use; consolidating the early FOSS work done in Kerala; and networking with different nations, communities, and governments to collaboratively promote FOSS"
+    }
+  ],
+  "coreteam": [
+    {
+      "name": "Prof. Kannan Moudgalya",
+      "position": ["P.I., FOSSEE"],
+      "institute": "Indian Institute of Technology Bombay"
+    },
+    {
+      "name": "Prof. Pennan Chinnasamy",
+      "position": [
+        "Co.P.I., FOSSEE & PiC, The Rural Data Research & Analysis (RuDRA) Lab, IIT Bombay"
+      ],
+      "institute": "Indian Institute of Technology Bombay"
+    },
+    {
+      "name": "Prof. Roshan Srivastav",
+      "position": [
+        "Project Director, IIT Tirupati Navavishkar I-Hub Foundation (NM-ICPS, DST)"
+      ],
+      "institute": "Indian Institute of Technology Tirupati"
+    },
+    {
+      "name": "Mr. Rajesh Kushalkar",
+      "position": ["Senior Manager, FOSSEE-Open Hardware"],
+      "institute": "Indian Institute of Technology Bombay"
+    },
+    {
+      "name": "Dr. Sunil T T",
+      "position": ["Director"],
+      "institute": "ICFOSS"
+    },
+    {
+      "name": "Dr. Srinivasan Ravindran",
+      "position": ["Program Head, FOSS Business Solutions"],
+      "institute": "Indian Institute of Technology Bombay"
+    },
+    {
+      "name": "Mr. Shafeek P M",
+      "position": ["Technical Coordinator - IoT"],
+      "institute": "ICFOSS"
+    },
+    {
+      "name": "Mr. Jayakumar K S",
+      "position": ["Manager, Incubation & FOSS Business Solutions"],
+      "institute": "ICFOSS"
+    },
+    {
+      "name": "Mr. Mohamed Kasim Khan",
+      "position": [
+        "National Coordinator, FOSSEE-GIS",
+        "National Mission on Education through ICT, Ministry of Education, Government of India"
+      ],
+      "institute": "Indian Institute of Technology Bombay"
+    }
+  ]
+}

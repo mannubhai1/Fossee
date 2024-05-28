@@ -5,23 +5,14 @@ interface Routes {
   name: string;
 }
 
-const routes : Routes[] = [
-  { path: '/', name: 'Home' },
-  { path: '/#purpose', name: 'About' },
-  { path: '/resources', name: 'Resources' },
-  { path: '/schedule', name: 'Schedule' },
-  { path: '/#register', name: 'Register' },
-  { path: '/#partners', name: 'Partners' },
-  { path: '/#contact-us', name: 'Contact Us' },
-  { path: '/#faq', name: 'FAQ' },
-  { path: '/results', name : 'Results' }
+import navbarJson from '../../public/jsonData/navbar.json'
 
-]
+const navbarData : Routes[] = navbarJson;
 ---
 
 
 <div class="navbar">{
-  routes.map(route => (
+  navbarData.map(route => (
     <a href={ route.path } class="text-blue-800">{ route.name }</a>
   ))
 }</div>
@@ -38,7 +29,7 @@ const routes : Routes[] = [
 </div>
 <div class="off-screen-menu">
   {
-    routes.map(route => (
+    navbarData.map(route => (
       <a href={ route.path } class="text-blue-800">{ route.name }</a>
     ))
   }

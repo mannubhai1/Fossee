@@ -1,0 +1,41 @@
+[
+  {
+    "img": "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/iitb-logo.png",
+    "alt": "IITB",
+    "link": "http://iitb.ac.in/"
+  },
+  {
+    "img": "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/fossee-logo.png",
+    "alt": "FOSSEE",
+    "link": "https://fossee.in/"
+  },
+  {
+    "img": "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/st-logo.png",
+    "alt": "Spoken Tutorial",
+    "link": "https://spoken-tutorial.org/"
+  },
+  {
+    "img": "https://iot-gis-hackathon.fossee.in/static/cms/uploads/images/icfoss-logo.png",
+    "alt": "icfoss"
+  },
+  {
+    "img": "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/rudra-logo.png",
+    "alt": "Rudra",
+    "link": "http://www.rudra.iitb.ac.in/"
+  },
+  {
+    "img": "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/iit-tirupati.png",
+    "alt": "IIT Tirupati",
+    "link": "https://www.iittp.ac.in/"
+  },
+  {
+    "img": "https://iitb-fossee-mapathon.fossee.in/static/cms/uploads/images/navavishkaar.png",
+    "alt": "IITTNiF",
+    "link": "https://iittnif.com/"
+  },
+  {
+    "img": "https://iot-gis-hackathon.fossee.org/static/cms/uploads/images/NM-ICPS-logo1.png",
+    "alt": "NMICPS",
+    "link": "https://nmicps.in/"
+  }
+]

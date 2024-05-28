@@ -1,0 +1,42 @@
+{
+  "about": [
+    {
+      "name": "IIT Bombay",
+      "link": "https://www.iitb.ac.in/"
+    },
+    {
+      "name": "FOSSEE",
+      "link": "https://fossee.in/"
+    },
+    {
+      "name": "NMEICT",
+      "link": "https://www.nmeict.ac.in/"
+    },
+    {
+      "name": "The RuDRA Lab",
+      "link": "https://www.rudra.iitb.ac.in/"
+    },
+    {
+      "name": "IITTNiF",
+      "link": "https://www.iittnif.org/"
+    },
+    {
+      "name": "ICFOSS",
+      "link": "https://www.icfoss.in/"
+    },
+    {
+      "name": "Spoken Tutorial",
+      "link": "https://spoken-tutorial.org/"
+    }
+  ],
+  "resources": [
+    {
+      "name": "QGIS",
+      "link": "https://qgis.org/en/site/forusers/download.html"
+    },
+    {
+      "name": "Spoken Tutorials - FOSSEE - GIS",
+      "link": "https://spoken-tutorial.org/tutorial-search/?search_foss=QGIS&search_language=English"
+    }
+  ]
+}
