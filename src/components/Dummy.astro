@@ -1,0 +1,136 @@
+---
+var test = await Astro.glob("../content/accordion/*.md");
+---
+<section>
+
+{
+  test.map((item)=>{
+  const Content = item.Content;
+  return(
+    <div class="faq"> 
+      <div class="question">
+        <h3>{item.frontmatter.heading}</h3>
+        <svg width = '15' height = '10' viewBox = '0 0 42 25'>
+            <path d = 'M3 3L21 21L39 3' stroke = 'white' stroke-width="7" stroke-linecape="round" /> 
+          </svg> 
+      </div>
+      <div class="answer">
+        <Content />
+      </div>
+    </div>
+   )})
+ }
+</section>
+
+
+<style>
+
+  section{
+    display: flex;
+    flex-direction: column;
+    margin : 0 auto;
+    width: 60%;
+  }
+
+  .faq{
+    max-width: 100%;
+    cursor: pointer;
+    border: 1px solid #f6f4f4;
+  }
+
+  .question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1c70cf;
+    background-color: rgba(0, 0, 0, .02); 
+    padding: 1rem 2rem;
+  }
+
+  .question h3{
+    font-size: 1.1rem;
+  }
+
+  .question h3:hover{
+    text-decoration: underline;
+    color: #1662b8;
+  }
+
+  .answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease;
+  }
+
+  .answer ul li{
+    padding: 1vh 3vh;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+    color: black;
+    font-weight: 500;
+    background-color: white;
+  }
+
+  .answer ul li a{
+    color: #17a2b8;
+    text-decoration: none;
+  }
+
+  .answer ul li a:hover{
+    text-decoration: underline;
+    color: #0e8fa3;
+  }
+
+  .faq.active .answer{
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+  }
+
+  .faq.active svg{
+    transform: rotate(180deg);
+  }
+
+  svg{
+    display: none;  /* If you want the icon besides the accordion, remove this line */
+    transition: transform 0.5s ease-in;
+  }
+
+  @keyframes fade {
+    from{
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    section{
+      width: 90%;
+    }
+    .answer p{
+      padding: 0.4vh 3vh;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+</style>
+
+
+<script>
+
+  const faqs = document.querySelectorAll('.faq');
+
+  faqs.forEach(faq => {
+    faq.addEventListener('click', () => {
+      faq.classList.toggle('active');
+    })
+  })
+
+</script>
+
+

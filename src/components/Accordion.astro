@@ -10,30 +10,31 @@ interface AccordionItem{
 
 import accordionJson from '../../public/jsonData/accordion.json'
 
+
 const accordionData : AccordionItem[] = accordionJson;
 ---
 <section>
 {
   accordionData.map((accordion)=>(
-      <div class="faq">
-        <div class="question">
-          <h3>{accordion.heading}</h3>
-          <svg width = '15' height = '10' viewBox = '0 0 42 25'>
-             <path d = 'M3 3L21 21L39 3' stroke = 'white' stroke-width="7" stroke-linecape="round" /> 
-           </svg> 
-        </div>
-        <div class="answer">
-          {
-            accordion.body.map((bodyLine) => (
-              <p>
-                <a href={bodyLine.link} target="_blank">{bodyLine.text}</a>
-              </p>
-            ))
-          }
-        </div>
+    <div class="faq">
+      <div class="question">
+        <h3>{accordion.heading}</h3>
+        <svg width = '15' height = '10' viewBox = '0 0 42 25'>
+            <path d = 'M3 3L21 21L39 3' stroke = 'white' stroke-width="7" stroke-linecape="round" /> 
+          </svg> 
       </div>
-    ))
-  }
+      <div class="answer">
+        {
+          accordion.body.map((bodyLine) => (
+            <p>
+              <a href={bodyLine.link} target="_blank">{bodyLine.text}</a>
+            </p>
+          ))
+        }
+      </div>
+    </div>
+  ))
+}
 </section>
 
 

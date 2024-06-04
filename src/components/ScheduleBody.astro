@@ -6,6 +6,7 @@ interface ScheduleItem{
     events : string[];
 }
 const scheduleData : ScheduleItem[] = scheduleJson;
+
 ---
 
 
@@ -15,7 +16,8 @@ const scheduleData : ScheduleItem[] = scheduleJson;
     </div>
     <hr>
     <div class="schedule-content">{
-        scheduleData.map((item)=>(
+        scheduleData.map((item)=>{
+            return (
             <h2>{item.heading}</h2>
             <div class="weeks">
                 {
@@ -24,7 +26,7 @@ const scheduleData : ScheduleItem[] = scheduleJson;
                     )
                 }
             </div>
-        ))
+        )})
     }
     </div>
 </div>
@@ -57,6 +59,7 @@ const scheduleData : ScheduleItem[] = scheduleJson;
     .weeks p{
         font-size: 3vh;
         padding: 1vh 2.6vh;
+        width: 75%;
         border-left: 4px solid blue;
     }
     @media screen and (max-width: 983px) {

@@ -1,23 +1,23 @@
 ---
 import Accordion from './Accordion.astro'
+import Dummy from './Dummy.astro'
 ---
 
 <div class="resources-main">
     <div class="resources-heading">
         <h1>Resources</h1>
     </div>
-    <Accordion/>
+    <!-- <Accordion/> -->
+    <Dummy/>
 </div>
-  <style>
+<style>
 
     .resources-main{
-        /* any background color we can add */
         margin: 3vh;
     }
     .resources-heading h1{
         color: rgb(2, 2, 110);
         font-size: 7.5vh;
-        /* font-family: 'Roboto Slab', serif !important; */
         padding: 3vh 21%;
         font-weight: 700;
     }
@@ -32,10 +32,5 @@ import Accordion from './Accordion.astro'
             text-align: center;
         }
     }
-    /* @media screen and (max-width: 983px) {
-        .resources-main{
-            margin: 9vh;
-        }
-    } */
-  </style>
+</style>
 

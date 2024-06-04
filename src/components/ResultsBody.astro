@@ -18,11 +18,11 @@ import Login from "./Login.astro";
   <script>
 var resultDate = {
   year: 2024,
-  month: 5,
-  day: 28,
+  month: 6,
+  day: 30,
   hours: 11,
-  minutes: 7,
-  seconds: 50,
+  minutes: 57,
+  seconds: 0,
 };
 
 function checkTime() {
@@ -64,8 +64,8 @@ function checkTime() {
 
   var currentTime = new Date(year, month - 1, day, hours, minutes, seconds);
   var targetTime = new Date(resultDate.year, resultDate.month - 1, resultDate.day, resultDate.hours, resultDate.minutes, resultDate.seconds);
-
-  if (currentTime >= targetTime) {
+  var check = false;
+  if (currentTime >= targetTime && !check) {
     // location.reload();    
     document.querySelector(".pre")?.classList.add("hidden");
     document.querySelector(".post")?.classList.remove("hidden");
@@ -79,5 +79,5 @@ function checkTime() {
 
 // Initial call to checkTime
 checkTime();
-  </script>
+</script>
 

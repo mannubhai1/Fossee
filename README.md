@@ -63,7 +63,7 @@ npm install
 ## Start the development server:
 
 ```bash
-npm run dev
+npm run start
 ```
 
 ### Open your browser and navigate to http://localhost:4321 to view the converted website.

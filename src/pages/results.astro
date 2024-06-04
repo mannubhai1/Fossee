@@ -5,6 +5,8 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import ResultsBody from '../components/ResultsBody.astro';
 import IconBar from '../components/IconBar.astro';
+
+const fruits = await Astro.glob('../content/fruits/*.md');
 ---
 
 <Layout title="Welcome to FOSSEE.">
@@ -12,8 +14,20 @@ import IconBar from '../components/IconBar.astro';
 		<TopBar />
 		<Navbar />
 		<IconBar/>
+
+		<!-- {fruits.map((fruit)=>{
+			const Content = fruit.Content;
+			const heading = fruit.frontmatter.heading;
+			return (
+				<div>
+					<h1>{heading}</h1>
+					<Content />
+				</div>
+			)
+		})} -->
 		<ResultsBody/>
 		<Footer/>
+
 	</main>
 </Layout>
 
