@@ -1,0 +1,51 @@
+---
+const user = Astro.locals.user; // Fetch the user from session or locals
+
+if (user) {
+  console.log(user);
+  return Astro.redirect('/admin');
+}
+
+---
+<div class="flex items-center justify-center h-screen">
+    <div class="bg-white p-10 rounded-lg shadow-lg w-full max-w-sm">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Admin Login</h1>
+        <form method="post" action="/api/login">
+            <div class="mb-4">
+                <input type="text" id="username" placeholder="Username" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+            </div>
+            <div class="mb-6">
+                <input type="password" id="password" placeholder="Password" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+            </div>
+            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+				Login
+			</button>
+            <p id="form-error"></p>
+			</form>
+			<a class="no-underline text-white" href="/signup">
+				<button class="w-full bg-blue-500 hover:bg-blue-700 text-white py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+					Signup 
+				</button>
+			</a>
+    </div>
+</div>
+
+<script>
+	const errorMessageElement = document.getElementById("form-error")!;
+
+	document.forms[0].addEventListener("submit", async (e) => {
+		e.preventDefault();
+		errorMessageElement.innerText = "";
+		const formElement = e.target as HTMLFormElement;
+		const response = await fetch(formElement.action, {
+			method: formElement.method,
+			body: new FormData(formElement),
+			credentials: 'include' 
+		});
+		if (response.ok) {
+			window.location.href = "/admin";
+		} else {
+			errorMessageElement.innerText = (await response.json()).error;
+		}
+	});
+</script>

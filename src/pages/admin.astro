@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopBar from '../components/TopBar.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import IconBar from '../components/IconBar.astro';
+const user = Astro.locals.user;
+if (!user) {
+	return Astro.redirect("/login");
+}
+
+const username = user.username;
+---
+
+<Layout title="Welcome to FOSSEE.">
+	<main>
+		<TopBar />  
+		<Navbar />
+		<IconBar/>
+		<div>
+			<h1>Hi, {user.username}!</h1>
+			<p>Your user ID is {user.id}.</p>
+			<form method="post" action="/api/logout">
+				<button>Sign out</button>
+			</form>
+		</div>
+		<Footer/>
+
+	</main>
+</Layout>
+
+<style>
+
+</style>
+
+<script>
+	document.forms[0].addEventListener("submit", async (e) => {
+		e.preventDefault();
+		const formElement = e.target as HTMLFormElement;
+		await fetch(formElement.action, {
+			method: formElement.method,
+			body: new FormData(formElement)
+		});
+		window.location.href = "/login";
+	});
+</script>

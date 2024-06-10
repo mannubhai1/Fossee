@@ -15,7 +15,7 @@ var test = await Astro.glob("../content/accordion/*.md");
           </svg> 
       </div>
       <div class="answer">
-        <Content />
+        <Content/>
       </div>
     </div>
    )})
@@ -92,7 +92,7 @@ var test = await Astro.glob("../content/accordion/*.md");
   }
 
   svg{
-    display: none;  /* If you want the icon besides the accordion, remove this line */
+    display: none;    /* If you want an icon besides the accordion, remove this line */
     transition: transform 0.5s ease-in;
   }
 
@@ -123,8 +123,25 @@ var test = await Astro.glob("../content/accordion/*.md");
 
 <script>
 
-  const faqs = document.querySelectorAll('.faq');
+  var answers = Array.from(document.getElementsByClassName("answer"));
+  // console.log(answers);
+  answers.forEach(answer => {
+    const anchors = answer.querySelectorAll("ul li a");
+    const lists = answer.querySelectorAll("ul li");
+    // console.log(anchors);
+    // console.log(lists);
+    anchors.forEach(anchor => {
+      anchor.classList.add("text-[#17a2b8]", "no-underline", "hover:underline", "hover:text-[#0e8fa3]");
+    });
 
+    lists.forEach((list)=>{
+      list.classList.add("py-1", "px-3", "text-base", "m-0", "leading-7", "text-black", "font-medium", "bg-white");
+    })
+});
+
+
+
+  const faqs = document.querySelectorAll('.faq');
   faqs.forEach(faq => {
     faq.addEventListener('click', () => {
       faq.classList.toggle('active');
