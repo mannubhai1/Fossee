@@ -1,4 +1,11 @@
 ---
+
+const user = Astro.locals.user; // Fetch the user from session or locals
+
+if (user) {
+//   console.log(user);
+  return Astro.redirect("/admin");
+}
 import Layout from '../layouts/Layout.astro';
 import TopBar from '../components/TopBar.astro';
 import Navbar from '../components/Navbar.astro';

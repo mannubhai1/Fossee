@@ -1,7 +1,7 @@
 import sqlite from "better-sqlite3";
 
 // Path to your SQLite database file
-const dbPath = "./mydatabase.db";
+const dbPath = "../../mydatabase.db";
 
 // Open the SQLite database connection
 const db = sqlite(dbPath);
