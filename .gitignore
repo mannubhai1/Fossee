@@ -10,6 +10,9 @@ node_modules/
 #database
 mydatabase.db
 
+#sample md
+fruits/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
@@ -25,3 +28,4 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+

@@ -10,6 +10,8 @@ const userId = "p1pczcq94xsbdcj";
 
 // Function to print all entries from the user table
 function printAllUsers() {
+  //check for empty database
+  
   const users = db.prepare("SELECT * FROM user").all();
   console.log("All Users:");
   console.table(users);

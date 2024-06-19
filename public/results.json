@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Alice Johnson",
+    "college": "ABC University",
+    "projectIdea": "AI-based Image Recognition",
+    "shortlisted": true
+  },
+  {
+    "name": "Bob Smith",
+    "college": "XYZ College",
+    "projectIdea": "Blockchain for Supply Chain",
+    "shortlisted": false
+  },
+  {
+    "name": "Charlie Brown",
+    "college": "DEF Institute of Technology",
+    "projectIdea": "Smart Home Automation",
+    "shortlisted": true
+  },
+  {
+    "name": "Diana Prince",
+    "college": "GHI University",
+    "projectIdea": "Healthcare Chatbot",
+    "shortlisted": false
+  },
+  {
+    "name": "Edward Norton",
+    "college": "JKL College",
+    "projectIdea": "Augmented Reality Education",
+    "shortlisted": true
+  },
+  {
+    "name": "Fiona Gallagher",
+    "college": "MNO Institute",
+    "projectIdea": "Renewable Energy Solutions",
+    "shortlisted": true
+  },
+  {
+    "name": "George Harrison",
+    "college": "PQR University",
+    "projectIdea": "Automated Financial Advisor",
+    "shortlisted": false
+  },
+  {
+    "name": "Hannah Lee",
+    "college": "STU College",
+    "projectIdea": "Virtual Reality Therapy",
+    "shortlisted": true
+  }
+]

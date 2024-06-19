@@ -1,7 +1,7 @@
 import sqlite from "better-sqlite3";
 // import path from "path";
 
-const dbPath = "./mydatabase.db";
+const dbPath = "mydatabase.db";
 
 export const db = sqlite(dbPath);
 

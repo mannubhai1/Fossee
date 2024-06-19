@@ -4,35 +4,80 @@ import TopBar from '../components/TopBar.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import IconBar from '../components/IconBar.astro';
-const user = Astro.locals.user;
-// console.log(user);
-if (!user) {
-	// console.log("redirecting to login");
-	return Astro.redirect("/login");
+import results from '../../public/results.json';
+import configFile from '../../config.json';
+
+// Check if sign out button should be shown
+var signOut = false;
+
+// Import your configuration file
+const config = configFile
+const resultDate = config.resultDate;
+
+// Calculate current time
+const currentDate = new Date();
+
+// Create target time
+const targetTime = new Date(resultDate.year, resultDate.month - 1, resultDate.day, resultDate.hours, resultDate.minutes, resultDate.seconds);
+
+console.log("Result date: ", targetTime);
+console.log("Current date: ", currentDate);
+
+// Check if current time is past target time
+if (currentDate < targetTime) {
+	signOut = true;		// Show sign out button
+	const user = Astro.locals.user;		// Check if user is logged in
+	if (!user) {
+		return Astro.redirect("/login");		// Redirect to login page if user is not logged in
+	}
 }
 
-const username = user.username;
+const renderStatus = (status:boolean) => status ? "Shortlisted" : "Not Shortlisted";
+interface IResult {
+	name: string;
+	college: string;
+	projectIdea: string;
+	shortlisted: boolean;
+}
+
+// console.log(signOut);
+
 ---
 
 <Layout title="Welcome to FOSSEE.">
-	<main>
-		<TopBar />  
-		<Navbar />
-		<IconBar/>
-		<div>
-			<h1>Hi, {user.username}!</h1>
-			<p>Your user ID is {user.id}.</p>
-			<form method="post" action="/api/logout">
-				<button>Sign out</button>
-			</form>
+	<TopBar />  
+	<Navbar />
+	<IconBar/>
+	<main class="pt-20 lg:pt-0">
+		<div class="container mx-auto p-6 min-h-screen">
+			<div class="flex justify-between mb-6">
+				<h1 class="text-3xl font-bold">Result Declarations</h1>
+				{signOut &&
+					<form  method="post" action="/api/logout">
+						<button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Sign Out</button>
+					</form>
+				}
+			</div>
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+				{results.map((result : IResult) => (
+					<div class="bg-white rounded-lg shadow-md p-6 grid gap-4">
+						<h2 class="text-2xl font-semibold">{result.name}</h2>
+						<div class="grid grid-cols-1 gap-2">
+							<p class="text-gray-700"><strong>College:</strong> {result.college}</p>
+							<p class="text-gray-700"><strong>Project Idea:</strong> {result.projectIdea}</p>
+							<p class={result.shortlisted ? "text-green-600 font-bold" : "text-red-600 font-bold"}>
+								<strong>Status:</strong> {renderStatus(result.shortlisted)}
+							</p>
+						</div>
+					</div>
+				))}
+			</div>
 		</div>
 		<Footer/>
-
 	</main>
 </Layout>
 
 <style>
-
 </style>
 
 <script>

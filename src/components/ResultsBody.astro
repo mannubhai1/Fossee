@@ -1,12 +1,15 @@
 ---
-// import Login from "./Login.astro";
+
+// Can be used in other pages to check if the user is logged in or not
 const user = Astro.locals.user;
+
 if(!user) {
   Astro.redirect('/login');
 }
 else{
   Astro.redirect('/admin');
 }
+
 ---
 
 <div class="resultsContainer">
@@ -15,87 +18,6 @@ else{
         <!-- <Login /> -->
         <a href = "/login" type="submit" class="w-40 bg-purple-600 no-underline text-center text-white py-2 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600" id="Adminbtn">Admin Login<a/>
     </div>
-    <div class="post min-h-screen hidden">
-        <h1>You got 100%</h1>
-        <a href="/admin" class="w-40 bg-purple-600 no-underline text-center text-white py-2 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600">Check your Results</a>
-    </div>
+
 </div>
-  <style>
-  </style>
-
-  <script>
-
-// Redirect not working
-
-// document.getElementById("Adminbtn")?.addEventListener("click", function() {
-//   console.log("Admin Login"); 
-//   Astro.redirect('/login');
-// });
-
-
-var resultDate = {
-  year: 2024,
-  month: 6,
-  day: 30,
-  hours: 11,
-  minutes: 57,
-  seconds: 0,
-};
-
-function checkTime() {
-  var currentDate = new Date();
-  var day = currentDate.getDate();
-  var month = currentDate.getMonth() + 1; // getMonth() returns 0-11
-  var year = currentDate.getFullYear();
-  var hours = currentDate.getHours();
-  var minutes = currentDate.getMinutes();
-  var seconds = currentDate.getSeconds();
-
-  console.log(
-    "Date: " +
-      day +
-      "/" +
-      month +
-      "/" +
-      year +
-      " Time: " +
-      hours +
-      ":" +
-      minutes +
-      ":" +
-      seconds
-  );
-  console.log(
-    "Result Date: " + resultDate.day +
-      "/" +
-      resultDate.month +
-      "/" +
-      resultDate.year +
-      " Time: " +
-      resultDate.hours +
-      ":" +
-      resultDate.minutes +
-      ":" +
-      resultDate.seconds
-  );
-
-  var currentTime = new Date(year, month - 1, day, hours, minutes, seconds);
-  var targetTime = new Date(resultDate.year, resultDate.month - 1, resultDate.day, resultDate.hours, resultDate.minutes, resultDate.seconds);
-  var check = false;
-  if (currentTime >= targetTime && !check) {
-    // location.reload();    
-    document.querySelector(".pre")?.classList.add("hidden");
-    document.querySelector(".post")?.classList.remove("hidden");
-    document.querySelector(".post")?.classList.add("flex");
-    document.querySelector(".post")?.classList.add("flex-col");
-    document.querySelector(".post")?.classList.add("items-center");
-    document.querySelector(".post")?.classList.add("justify-center");
-  } else {
-    // setTimeout(checkTime, 1000); // Check every second
-  }
-}
-
-// Initial call to checkTime
-checkTime();
-</script>
 
