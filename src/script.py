@@ -1,3 +1,6 @@
+
+# This script reads the JSON data from the input file and creates a Markdown file for each entry in the JSON data.
+
 import json
 import os
 

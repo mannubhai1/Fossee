@@ -1,41 +1,46 @@
 ---
-import footerJson from '../../public/jsonData/footer.json'
-interface aboutList {
-    name: string;
-    link: string;
-}
+// import footerJson from '../../public/jsonData/footer.json'
+// interface aboutList {
+//     name: string;
+//     frontmatter.link: string;
+// }
 
-interface footerContent {
-    about: aboutList[];
-    resources: aboutList[];
-}
+// interface footerContent {
+//     about: aboutList[];
+//     resources: aboutList[];
+// }
 
-const footerData : footerContent = footerJson; 
+// const footerContent : footerContent = footerJson; 
+var aboutContent = await Astro.glob("../content/footer/about/*.md");
+var resourcesContent = await Astro.glob("../content/footer/resources/*.md");
 ---
 
 <div class="footer">
     <div class="footer-content">
+        <!-- this is the about section -->
         <ul class="about-list">
             <h2>About</h2>{
-                footerData.about.map((item) => {
+                aboutContent.map((item) => {
                     return (
-                        <li><a class="footer-links" href={item.link} target="_blank">{item.name}</a></li>
+                        <li><a class="footer-links" href={item.frontmatter.link} target="_blank">{item.frontmatter.name}</a></li>
                     )
                 })
             }
         </ul>
     </div>
     <div class="footer-content">
+        <!-- this is the resources section -->
         <ul>
             <h2>Resources</h2>{
-                footerData.resources.map((item) => {
+                resourcesContent.map((item) => {
                     return (
-                        <li><a class="footer-links" href={item.link} target="_blank">{item.name}</a></li>
+                        <li><a class="footer-links" href={item.frontmatter.link} target="_blank">{item.frontmatter.name}</a></li>
                     )
                 })
             }
         </ul>
     </div>
+    <!-- this is the license section -->
     <div class="license-container">
         <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
             <img class ="license-img" alt="Creative Commons License" style="border-width:0" src="https://iitb-isro-aicte-mapathon.fossee.in/static/cms/uploads/images/88x31.png">

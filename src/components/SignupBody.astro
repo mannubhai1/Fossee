@@ -2,6 +2,8 @@
 
 ---
 
+<!-- Signup form -->
+
 <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
     <h1 class="text-2xl font-bold mb-6">Create an account</h1>
     <form method="post" action="/api/signup" class="w-full max-w-sm bg-white p-8 rounded shadow-md">
@@ -13,9 +15,15 @@
             <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
             <input type="password" name="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
+
+        <!-- Continue button -->
+
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Continue</button>
         <p id="form-error" class="mt-4 text-red-500 text-sm"></p>
     </form>
+
+    <!-- Sign in link -->
+
     <a href="/login" class="mt-4 text-blue-500 hover:underline">
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         Sign in
@@ -25,6 +33,8 @@
 
 
 <script>
+
+    // Form submission
 	const errorMessageElement = document.getElementById("form-error")!;
 
 	document.forms[0].addEventListener("submit", async (e) => {
@@ -35,6 +45,7 @@
 			method: formElement.method,
 			body: new FormData(formElement)
 		});
+        // Redirect to admin page if successful
 		if (response.ok) {
 			window.location.href = "/admin";
 		} else {

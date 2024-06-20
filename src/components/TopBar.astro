@@ -1,68 +1,72 @@
 ---
-import 'bootstrap/dist/css/bootstrap.css'
-import bannerJson from "../../public/jsonData/topbar.json"
+// import 'bootstrap/dist/css/bootstrap.css'
+// import bannerJson from "../../public/jsonData/topbar.json"
 
-interface BannerImages {
-  link: string;
-  image: string;
-  alt: string;
-  classname: string;
-  id? : string;
-}
+// interface BannerImages {
+//   link: string;
+//   image: string;
+//   alt: string;
+//   classname: string;
+//   id? : string;
+// }
 
-const bannerData : BannerImages[] = bannerJson;
+// const bannerData : BannerImages[] = bannerJson;
+
+const bannerContent = await Astro.glob("../content/topbarLogo/*.md");
 ---
 
+
+
 <div class="banner-content">
-    <div id="top-logo-placeholder">
-      <div class="d-flex justify-content-center">{
-        bannerData.map((image) => {
-          return (
-            <div class="p-2 pb-1">
-              <a href={image.link} target="_blank">
-                <img src={image.image} class={image.classname} alt={image.alt} id={image.id}/>
-              </a>
-            </div>
-          )
-        })
-      }
-      </div>
+  <div id="top-logo-placeholder">
+    <div class="d-flex justify-content-center">{
+      bannerContent.map((image) => {
+        return (
+          <div class="p-2 pb-1">
+            <a href={image.frontmatter.link} target="_blank">
+              <img src={image.frontmatter.image} class={image.frontmatter.classname} alt={image.frontmatter.alt} id={image.frontmatter.id}/>
+            </a>
+          </div>
+        )
+      })
+    }
     </div>
   </div>
+</div>
   
-  <style>
+<style>
 
-    a{
-      cursor: pointer;
-    }
+  a{
+    cursor: pointer;
+  }
 
+  .banner-content{
+    z-index: 1001;
+  }
+  .banner-content div div{
+    align-items: center;
+  }
+
+
+  img{
+    width: 10vh;
+  
+  }
+  .banner-content .big-img {
+    width: 18vh;
+  }
+
+  .banner-content #iitb{
+    height: 30%;
+    width: 23vh;
+  }
+
+  @media screen and (max-width: 982px){
     .banner-content{
-      z-index: 1001;
+      position: sticky;
+      top: 0;
+      background-color: white;
     }
-    .banner-content div div{
-      align-items: center;
-    }
-
-
-    img{
-      width: 10vh;
-    
-    }
-    .banner-content .big-img {
-      width: 18vh;
-    }
-
-    .banner-content #iitb{
-      height: 30%;
-      width: 23vh;
-    }
-
-    @media screen and (max-width: 982px){
-      .banner-content{
-        position: sticky;
-        top: 0;
-        background-color: white;
-      }
-    }
-  </style>
+  }
+</style>
 

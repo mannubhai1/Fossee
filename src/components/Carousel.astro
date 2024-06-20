@@ -1,43 +1,51 @@
 ---
-import carouselJson from '../../public/jsonData/carousel.json'
-interface Carousel{
-  img: string;
-  alt: string;
-  link?: string;
-}
+import { chunkArray } from '../utils/chunk';
 
-const carouselData : Carousel[] = carouselJson;
+// import carouselJson from '../../public/jsonData/carousel.json'
+// interface Carousel{
+//   img: string;
+//   alt: string;
+//   link?: string;
+// }
+
+// const carouselData : Carousel[] = carouselJson;
+
+
+var carouselContent = await Astro.glob("../content/partnersCarouselLogo/*.md");
+
+//this is the just for chunking the array into 4 parts
+const chunkedContent = chunkArray(carouselContent, 4);
 
 ---
   <div class="gallery-wrap">
+
+    <!-- this is the back button for the carousel -->
+
     <!-- <svg id = "backBtn" xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" {...props}>
       <path fill="black" d="M19.793 3.441v17.118a1.243 1.243 0 0 1-1.83 1.19L3.329 12.991a1.184 1.184 0 0 1 0-1.982l14.634-8.758a1.243 1.243 0 0 1 1.83 1.19" />
     </svg> -->
+
+
+    <!-- this is the gallery of the carousel -->
+
     <div class="gallery">
-      <div>{
-        carouselData.slice(0, 4).map((slide) => {
-          return (
+      {chunkedContent.map((chunk, index) => (
+        <div>
+          {chunk.map((slide, idx) => (
             <span>
-              <a href={slide.link} target="_blank">
-                <img src={slide.img} alt={slide.alt} />
+              <a href={slide.frontmatter.link} target="_blank" rel="noopener noreferrer">
+                <img src={slide.frontmatter.img} alt={slide.frontmatter.alt} />
               </a>
             </span>
-          );
-        })
-      }</div>
-      <div>{
-        carouselData.slice(4).map((slide) => {
-          return (
-            <span>
-              <a href={slide.link} target="_blank">
-                <img src={slide.img} alt={slide.alt} />
-                </a>
-            </span>
-          );
-        })
-      }
-      </div>
+          ))}
+        </div>
+      ))}
     </div>
+
+
+
+    <!-- this is the next button for the carousel -->
+
     <!-- <svg id = "nextBtn" xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" {...props}>
       <path fill="black" d="M19.793 3.441v17.118a1.243 1.243 0 0 1-1.83 1.19L3.329 12.991a1.184 1.184 0 0 1 0-1.982l14.634-8.758a1.243 1.243 0 0 1 1.83 1.19" />
     </svg> -->
@@ -81,6 +89,8 @@ const carouselData : Carousel[] = carouselJson;
     align-items: center; 
   }
 
+ /* styling of the buttons */
+
   /* #nextBtn{
     transform: rotateY(180deg);
   }
@@ -95,6 +105,8 @@ const carouselData : Carousel[] = carouselJson;
     .gallery div{
       grid-gap: 70px;
     }
+
+    /* styling of the buttons */
     /* #backBtn, #nextBtn{
       margin: 0;
     } */
@@ -105,14 +117,20 @@ const carouselData : Carousel[] = carouselJson;
 <script>
 
   let scrollContainer : HTMLElement | null = document.querySelector(".gallery");
-  // let nextBtn : HTMLElement | null = document.getElementById("nextBtn");
-  // let backBtn : HTMLElement | null = document.getElementById("backBtn");
 
+  
   scrollContainer?.addEventListener("wheel", (e)=>{
     e.preventDefault();
     scrollContainer.scrollLeft += (e as WheelEvent).deltaY;
     scrollContainer.style.scrollBehavior = "auto";
   });
+  
+  // this is the code for accessing the button elements
+
+  // let nextBtn : HTMLElement | null = document.getElementById("nextBtn");
+  // let backBtn : HTMLElement | null = document.getElementById("backBtn");
+
+  // this is the functioning of the buttons
 
   // nextBtn?.addEventListener("click", ()=>{
   //   if(scrollContainer){

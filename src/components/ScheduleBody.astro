@@ -1,14 +1,17 @@
 ---
 
-import scheduleJson from '../../public/jsonData/schedule.json';
-interface ScheduleItem{
-    heading : string;
-    events : string[];
-}
-const scheduleData : ScheduleItem[] = scheduleJson;
+// import scheduleJson from '../../public/jsonData/schedule.json';
+// interface ScheduleItem{
+//     heading : string;
+//     events : string[];
+// }
+// const scheduleData : ScheduleItem[] = scheduleJson;
+
+var scheduleContent = await Astro.glob('../content/scheduleEvent/*.md');
 
 ---
 
+<!--  Schedule  -->
 
 <div class="schedule-main">
     <div class="schedule-heading">
@@ -16,15 +19,12 @@ const scheduleData : ScheduleItem[] = scheduleJson;
     </div>
     <hr>
     <div class="schedule-content">{
-        scheduleData.map((item)=>{
+        scheduleContent.map((item)=>{
+            const Content = item.Content;
             return (
-            <h2>{item.heading}</h2>
+            <h2 class="md:w-[80vw]">{item.frontmatter.heading}</h2>
             <div class="weeks">
-                {
-                    item.events.map((event)=>
-                        <p>{event}</p>
-                    )
-                }
+                <Content />
             </div>
         )})
     }
@@ -32,46 +32,57 @@ const scheduleData : ScheduleItem[] = scheduleJson;
 </div>
 
 
-  <style>
+<style>
 
-    .schedule-heading h1{
-        color: rgb(2, 2, 110);
-        font-size: 7.5vh;
-        /* font-family: 'Roboto Slab', serif !important; */
-        padding: 3vh 6vw;
-        font-weight: 700;
-        text-align: center;
-    }
-    .schedule-heading:hover{
-        color: blue;
-    }
+.schedule-heading h1{
+    color: rgb(2, 2, 110);
+    font-size: 7.5vh;
+    /* font-family: 'Roboto Slab', serif !important; */
+    padding: 3vh 6vw;
+    font-weight: 700;
+    text-align: center;
+}
+.schedule-heading:hover{
+    color: blue;
+}
+.schedule-content{
+    padding: 0 0 0 25%;
+    width: 75vw;
+}
+.schedule-content h2{
+    font-size: 3.3vh;
+    width:50vw;
+    background-color: rgb(252, 230, 188);
+    padding: 1vh;
+    margin-bottom: 2vh;
+    color:rgb(2, 2, 110);
+}
+@media screen and (max-width: 983px) {
     .schedule-content{
-        padding: 0 0 0 25%;
+        padding: 0 0 0 12%;
     }
     .schedule-content h2{
-        font-size: 3.3vh;
-        width:72%;
-        background-color: rgb(252, 230, 188);
-        padding: 1vh;
-        margin-bottom: 2vh;
-        color:rgb(2, 2, 110);
+        width: 80vw;
+    }
+    .schedule-heading h1{
+        font-size: 5vh;
+        margin-top: 10vh;
     }
     .weeks p{
-        font-size: 3vh;
-        padding: 1vh 2.6vh;
-        width: 75%;
-        border-left: 4px solid blue;
+        border-left: 2px solid blue;
     }
-    @media screen and (max-width: 983px) {
-        .schedule-content{
-            padding: 0 0 0 12%;
-        }
-        .schedule-heading h1{
-            font-size: 5vh;
-            margin-top: 10vh;
-        }
-        .weeks p{
-            border-left: 2px solid blue;
-        }
-  }
-  </style>
+}
+</style>
+
+<script>
+
+//styling the schedule Content    
+
+var weeks = Array.from(document.getElementsByClassName("weeks"));
+weeks.forEach(answer => {
+    const paras = answer.querySelectorAll("ul li");
+    paras.forEach(para => {
+    para.classList.add("text-xl", "py-1", "px-4", "border-s-[3px]", "border-blue-800", "border-solid", "my-1", "md:border-s-[4px]");
+    });
+});
+</script>

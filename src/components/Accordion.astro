@@ -1,40 +1,38 @@
 ---
-interface BodyLine {
-  text: string;
-  link?: string
-}
-interface AccordionItem{
-  heading : string;
-  body : BodyLine[];
-}
+// interface BodyLine {
+//   text: string;
+//   link?: string
+// }
+// interface AccordionItem{
+//   heading : string;
+//   body : BodyLine[];
+// }
 
-import accordionJson from '../../public/jsonData/accordion.json'
+// import accordionJson from '../../public/jsonData/accordion.json'
+// const accordionData : AccordionItem[] = accordionJson;
 
 
-const accordionData : AccordionItem[] = accordionJson;
+var accordionContent = await Astro.glob("../content/resourcesPage/*.md");
 ---
 <section>
+
 {
-  accordionData.map((accordion)=>(
-    <div class="faq">
+  accordionContent.map((item)=>{
+  const Content = item.Content;
+  return(
+    <div class="faq"> 
       <div class="question">
-        <h3>{accordion.heading}</h3>
+        <h3>{item.frontmatter.heading}</h3>
         <svg width = '15' height = '10' viewBox = '0 0 42 25'>
             <path d = 'M3 3L21 21L39 3' stroke = 'white' stroke-width="7" stroke-linecape="round" /> 
           </svg> 
       </div>
       <div class="answer">
-        {
-          accordion.body.map((bodyLine) => (
-            <p>
-              <a href={bodyLine.link} target="_blank">{bodyLine.text}</a>
-            </p>
-          ))
-        }
+        <Content/>
       </div>
     </div>
-  ))
-}
+   )})
+ }
 </section>
 
 
@@ -77,7 +75,7 @@ const accordionData : AccordionItem[] = accordionJson;
     transition: max-height 0.8s ease;
   }
 
-  .answer p{
+  .answer ul li{
     padding: 1vh 3vh;
     font-size: 1rem;
     margin: 0;
@@ -87,12 +85,12 @@ const accordionData : AccordionItem[] = accordionJson;
     background-color: white;
   }
 
-  .answer p a{
+  .answer ul li a{
     color: #17a2b8;
     text-decoration: none;
   }
 
-  .answer p a:hover{
+  .answer ul li a:hover{
     text-decoration: underline;
     color: #0e8fa3;
   }
@@ -107,7 +105,7 @@ const accordionData : AccordionItem[] = accordionJson;
   }
 
   svg{
-    display: none;  /* If you want the icon besides the accordion, remove this line */
+    display: none;    /* If you want an icon besides the accordion, remove this line */
     transition: transform 0.5s ease-in;
   }
 
@@ -138,8 +136,24 @@ const accordionData : AccordionItem[] = accordionJson;
 
 <script>
 
-  const faqs = document.querySelectorAll('.faq');
 
+  // this is for the styling of the accordion
+  var answers = Array.from(document.getElementsByClassName("answer"));
+  answers.forEach(answer => {
+    const anchors = answer.querySelectorAll("ul li a");
+    const lists = answer.querySelectorAll("ul li");
+    anchors.forEach(anchor => {
+      anchor.classList.add("text-[#17a2b8]", "no-underline", "hover:underline", "hover:text-[#0e8fa3]");
+    });
+
+    lists.forEach((list)=>{
+      list.classList.add("py-1", "px-3", "text-base", "m-0", "leading-7", "text-black", "font-medium", "bg-white");
+    })
+});
+
+
+  // this is for the accordion
+  const faqs = document.querySelectorAll('.faq');
   faqs.forEach(faq => {
     faq.addEventListener('click', () => {
       faq.classList.toggle('active');
@@ -147,5 +161,8 @@ const accordionData : AccordionItem[] = accordionJson;
   })
 
 </script>
+
+
+
 
 
