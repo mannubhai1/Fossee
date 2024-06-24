@@ -1,4 +1,6 @@
 ---
+import CountdownTimer from "./CountdownTimer.astro";
+
 
 // Can be used in other pages to check if the user is logged in or not
 
@@ -15,8 +17,9 @@ else{
 
 ---
 
-<div class="resultsContainer">
+<div class="resultsContainer ">
     <div class="pre min-h-screen flex flex-col items-center justify-center">
+        <CountdownTimer />
         <h1 class="mb-10">Results will be announced soon</h1>
         <a href = "/login" type="submit" class="w-40 bg-purple-600 no-underline text-center text-white py-2 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600" id="Adminbtn">Admin Login<a/>
     </div>

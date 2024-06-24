@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to FOSSEE.">
+  <main class="flex flex-col items-center justify-center min-h-screen bg-slate-800">
+    <div class="flex flex-col items-center">
+      <h1 class="text-6xl font-bold relative">
+        <!-- Congratulations -->
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">C</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">o</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">n</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">g</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">r</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">a</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">t</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">u</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">l</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">a</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">t</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">i</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">o</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">n</span>
+        <span class="inline-block text-pink-500 transform transition-all duration-500 ease-in-out animate-bounce">s</span>
+      </h1>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  h1 span {
+    animation: bounce 1s infinite;
+  }
+</style>
+
+<script>
+
+  // Animation for each letter
+  const spans = document.querySelectorAll('h1 span');
+    // console.log(spans);
+    spans.forEach((span, index) => {
+      (span as HTMLElement).style.animationDelay = `${index * 0.1}s`;
+  });
+
+
+ // Confetti Animation
+  import { confetti } from "../utils/confetti";
+  
+  const startConfetti = () => {
+    setTimeout(function () {
+        confetti.start();
+    }, 1000);
+  };
+  
+  const stopConfettiAndRedirect = () => {
+    setTimeout(function () {
+        confetti.stop();
+      window.location.href = '/admin';
+    }, 5000); // Change this duration as needed
+  };
+  
+  startConfetti();
+  stopConfettiAndRedirect();
+
+</script>

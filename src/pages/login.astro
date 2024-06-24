@@ -3,7 +3,7 @@
 const user = Astro.locals.user; // Fetch the user from session or locals
 
 if (user) {		// If user is already logged in, redirect to admin page
-  return Astro.redirect("/admin");
+  return Astro.redirect("/announce");
 }
 import Layout from '../layouts/Layout.astro';
 import TopBar from '../components/TopBar.astro';

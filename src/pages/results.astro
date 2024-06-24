@@ -5,10 +5,10 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import ResultsBody from '../components/ResultsBody.astro';
 import IconBar from '../components/IconBar.astro';
-import configFile from '../../config.json';
 
 // Import your configuration file
-const config = configFile
+import config from '../../config.json';
+
 const resultDate = config.resultDate;
 
 // Calculate current time
@@ -23,7 +23,7 @@ console.log("Current date: ", currentDate);
 // Check if current time is past target time
 if (currentDate >= targetTime) {
   // Redirect if condition met
-  return Astro.redirect('/admin');
+  return Astro.redirect('/announce');
 }
 ---
 
