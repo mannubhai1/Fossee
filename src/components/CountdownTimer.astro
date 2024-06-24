@@ -1,0 +1,70 @@
+---
+
+---
+<div class="launchTime flex flex-wrap justify-center items-center bg-gray-800 py-6 px-16 rounded-lg shadow-lg mb-4">
+    <div class="time-unit flex flex-col items-center m-3">
+        <p id="days" class=" text-4xl sm:text-6xl font-bold text-white">00</p>
+        <span class="text-xl text-gray-400">Days</span>
+    </div>
+    <div class="time-unit flex flex-col items-center m-3">
+        <p id="hours" class=" text-4xl sm:text-6xl font-bold text-white">00</p>
+        <span class="text-xl text-gray-400">Hours</span>
+    </div>
+    <div class="time-unit flex flex-col items-center m-3">
+        <p id="minutes" class=" text-4xl sm:text-6xl font-bold text-white">00</p>
+        <span class="text-xl text-gray-400">Minutes</span>
+    </div>
+    <div class="time-unit flex flex-col items-center m-3">
+        <p id="seconds" class=" text-4xl sm:text-6xl font-bold text-white">00</p>
+        <span class="text-xl text-gray-400">Seconds</span>
+    </div>
+</div>
+
+<script>
+
+    import config from '../../config.json'
+    const resultDate = config.resultDate;
+    
+    var x = setInterval(function(){
+
+        var targetTime = new Date(resultDate.year, resultDate.month - 1, resultDate.day, resultDate.hours, resultDate.minutes, resultDate.seconds).getTime();
+
+        var currentDate = new Date().getTime();
+
+        // Calculating the time left for the countdown
+        var timeLeft = targetTime - currentDate;
+
+        // Calculating the days, hours, minutes and seconds left
+        var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Storing the elements in variables
+        let dayElement : HTMLElement | null = document.getElementById("days");
+        let hoursElement : HTMLElement | null = document.getElementById("hours");
+        let minutesElement : HTMLElement | null = document.getElementById("minutes");
+        let secondsElement : HTMLElement | null = document.getElementById("seconds");
+
+        // If the element is not found, return
+        if(dayElement == null || hoursElement == null || minutesElement == null || secondsElement == null){
+            return;
+        }
+
+        // setting the values in the elements
+        dayElement.innerHTML = days.toString()
+        hoursElement.innerHTML = hours.toString()
+        minutesElement.innerHTML = minutes.toString()
+        secondsElement.innerHTML = seconds.toString()
+
+        // If the count down is over, write some text
+        if(timeLeft<0){
+            clearInterval(x);
+            dayElement.innerHTML =  "00";
+            hoursElement.innerHTML = "00";
+            minutesElement.innerHTML = "00";
+            secondsElement.innerHTML = "00";
+        }
+
+    },1000);
+</script>
