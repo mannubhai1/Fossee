@@ -60,6 +60,7 @@ The project directory includes the following folders for managing content:
 
   - Add new partner logos to the carousel using Markdown files with `Number`, `img`, `alt`, and `link`.
   - link is optional, keep it blank `""` if not available.
+  - The carousel is designed to show 4 logos at a time, if you want to change it, you can change the corresponding grid layout and chunk.ts file.
 
 - **Resources Page**: Located in `src/content/resourcesPage`.
 
@@ -74,6 +75,11 @@ The project directory includes the following folders for managing content:
 - **Top Bar Logo**: Located in `src/content/topBarLogo`.
   - Add new top bar logos using Markdown files with `Number`, `link`, `img`, `alt`, `classname`, and `id`.
   - Just keep the `classname` as `img-fluid logos` and `id` blank `""`.
+
+## KeyPoints:
+
+<!-- add something about config.json where i have stored the result data -->
+
 
 ## Setup Instructions
 
